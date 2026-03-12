@@ -1,0 +1,26 @@
+{
+  "name": "qa-cypress-framework",
+  "version": "1.0.0",
+  "description": "Cypress framework for testing sample web app",
+  "homepage": "https://github.com/TomPieniazek/qa-cypress-framework#readme",
+  "bugs": {
+    "url": "https://github.com/TomPieniazek/qa-cypress-framework/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomPieniazek/qa-cypress-framework.git"
+  },
+  "license": "ISC",
+  "author": "TomPieniazek",
+  "type": "commonjs",
+  "scripts": {
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "test": "npm run cy:run",
+    "app:up": "docker run --name rolnopol-app -p 3000:3000 -d jaktestowac/rolnopol:1.0.113",
+    "app:down": "docker stop rolnopol-app && docker rm rolnopol-app"
+  },
+  "devDependencies": {
+    "cypress": "15.11.0"
+  }
+}
