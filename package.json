@@ -21,6 +21,9 @@
     "app:down": "docker stop rolnopol-app && docker rm rolnopol-app"
   },
   "devDependencies": {
-    "cypress": "15.11.0"
+    "cypress": "15.11.0",
+    "eslint": "10.0.3",
+    "eslint-plugin-cypress": "6.2.0",
+    "prettier": "3.8.1"
   }
 }
