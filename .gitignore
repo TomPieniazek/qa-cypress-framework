@@ -4,6 +4,8 @@ node_modules/
 Thumbs.db
 cypress/videos/
 cypress/screenshots/
+allure-results/
+allure-report/
 
 # Optional local notes
 .notes/

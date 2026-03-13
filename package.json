@@ -17,10 +17,16 @@
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
     "test": "npm run cy:run",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results",
     "app:up": "docker run --name rolnopol-app -p 3000:3000 -d jaktestowac/rolnopol:1.0.113",
     "app:down": "docker stop rolnopol-app && docker rm rolnopol-app"
   },
   "devDependencies": {
+    "@faker-js/faker": "10.3.0",
+    "allure-commandline": "2.38.0",
+    "allure-cypress": "3.6.0",
     "cypress": "15.11.0",
     "eslint": "10.0.3",
     "eslint-plugin-cypress": "6.2.0",

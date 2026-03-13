@@ -9,6 +9,8 @@ Target app under test: `jaktestowac/rolnopol` Docker image.
 - Cypress (E2E)
 - Node.js / npm
 - Docker
+- Allure reporting
+- Faker (test data)
 
 ## Project structure
 
@@ -25,7 +27,7 @@ package.json
 
 ## Prerequisites
 
-- Node.js 18+ (recommended: latest LTS)
+- Node.js 20+ (recommended: latest LTS)
 - Docker Desktop (or Docker Engine)
 
 ## Install dependencies
@@ -61,6 +63,30 @@ Open Cypress UI:
 ```bash
 npm run cy:open
 ```
+
+## Allure reporting
+
+Allure results are written to `allure-results` after each Cypress run.
+
+Generate a static report:
+
+```bash
+npm run allure:generate
+```
+
+Open the report:
+
+```bash
+npm run allure:open
+```
+
+Or serve results directly:
+
+```bash
+npm run allure:serve
+```
+
+Note: Allure report generation requires Java to be installed.
 
 ## Notes
 
