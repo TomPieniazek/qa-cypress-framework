@@ -7,6 +7,7 @@ Target app under test: `jaktestowac/rolnopol` Docker image.
 ## Tech stack
 
 - Cypress (E2E)
+- TypeScript
 - Node.js / npm
 - Docker
 - Allure reporting

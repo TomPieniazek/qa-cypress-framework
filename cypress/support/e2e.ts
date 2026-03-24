@@ -1,3 +1,4 @@
-require('allure-cypress');
+import "allure-cypress";
+import "./commands";
 
 // Global hooks and shared setup for E2E tests can be added here.
