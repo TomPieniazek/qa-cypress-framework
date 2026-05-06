@@ -36,32 +36,32 @@ export type RegisterApiResponse<T = unknown> = {
   details?: unknown;
 };
 
-Cypress.Commands.add("getSystemStatistics", () => {
+Cypress.Commands.add('getSystemStatistics', () => {
   return cy
     .request<SystemStatistics>({
-      method: "GET",
-      url: "/api/v1/statistics",
+      method: 'GET',
+      url: '/api/v1/statistics',
     })
-    .its("body");
+    .its('body');
 });
 
-Cypress.Commands.add(
-  "registerUser",
-  (user: RegisterUserData, aliasName = "testUser") => {
-    const body = {
-      email: user.email,
-      password: user.password,
-      ...(user.displayName ? { displayedName: user.displayName } : {}),
-    };
+Cypress.Commands.add('registerUser', (user: RegisterUserData, aliasName = 'testUser') => {
+  const body = {
+    email: user.email,
+    password: user.password,
+    ...(user.displayName ? { displayedName: user.displayName } : {}),
+  };
 
-    return cy
-      .request<RegisterApiResponse>({
-        method: "POST",
-        url: "/api/v1/register",
-        body,
-      })
-      .then((response) => {
-        return cy.wrap(user).as(aliasName).then(() => response);
-      });
-  },
-);
+  return cy
+    .request<RegisterApiResponse>({
+      method: 'POST',
+      url: '/api/v1/register',
+      body,
+    })
+    .then((response) => {
+      return cy
+        .wrap(user)
+        .as(aliasName)
+        .then(() => response);
+    });
+});

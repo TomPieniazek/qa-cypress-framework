@@ -8,9 +8,5 @@
     "types": ["cypress", "node"],
     "noEmit": true
   },
-  "include": [
-    "cypress/**/*.ts",
-    "cypress/**/*.d.ts",
-    "cypress.config.ts"
-  ]
+  "include": ["cypress/**/*.ts", "cypress/**/*.d.ts", "cypress.config.ts"]
 }

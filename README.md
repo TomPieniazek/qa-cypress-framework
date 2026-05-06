@@ -91,5 +91,5 @@ Note: Allure report generation requires Java to be installed.
 
 ## Notes
 
-- Current image tag used in scripts: `1.0.113`.
+- Current image tag used in scripts: `1.0.131`.
 - If a container named `rolnopol-app` already exists, remove it before running `npm run app:up` again.

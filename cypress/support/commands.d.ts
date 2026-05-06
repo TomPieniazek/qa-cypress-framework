@@ -1,10 +1,6 @@
 /// <reference types="cypress" />
 
-import type {
-  RegisterApiResponse,
-  RegisterUserData,
-  SystemStatistics,
-} from "./commands";
+import type { RegisterApiResponse, RegisterUserData, SystemStatistics } from './commands';
 
 declare global {
   namespace Cypress {
@@ -17,10 +13,7 @@ declare global {
       /**
        * Register a new user via API and wrap the user as an alias.
        */
-      registerUser(
-        user: RegisterUserData,
-        aliasName?: string,
-      ): Chainable<Cypress.Response<RegisterApiResponse>>;
+      registerUser(user: RegisterUserData, aliasName?: string): Chainable<Cypress.Response<RegisterApiResponse>>;
     }
   }
 }

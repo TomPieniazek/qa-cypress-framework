@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from '@faker-js/faker';
 
 type UserData = {
   email: string;
@@ -9,36 +9,31 @@ type UserData = {
 class RegisterPage {
   selectors = {
     getAuthInfoSection() {
-      return cy.get("div.auth-info");
+      return cy.get('div.auth-info');
     },
 
     getEmailInput() {
-      return cy.get("input#email");
+      return cy.get('input#email');
     },
 
     getDisplayNameInput() {
-      return cy.get("input#displayedName");
+      return cy.get('input#displayedName');
     },
 
     getPasswordInput() {
-      return cy.get("input#password");
+      return cy.get('input#password');
     },
 
     getCreateAccountButton() {
-      return cy.get("button[data-testid=register-submit-btn]");
+      return cy.get('button[data-testid=register-submit-btn]');
     },
   };
 
   visit(): void {
-    cy.visit("/register.html");
+    cy.visit('/register.html');
   }
 
-  fillRegistrationForm(
-    email: string,
-    displayName: string | undefined,
-    password: string,
-    createAccount = false,
-  ): void {
+  fillRegistrationForm(email: string, displayName: string | undefined, password: string, createAccount = false): void {
     this.selectors.getEmailInput().clear().type(email);
 
     if (displayName) {
@@ -54,8 +49,8 @@ class RegisterPage {
 
   sanitizeDisplayName(displayName: string): string {
     return displayName
-      .replace(/[^A-Za-z0-9 _-]/g, "")
-      .replace(/\s+/g, " ")
+      .replace(/[^A-Za-z0-9 _-]/g, '')
+      .replace(/\s+/g, ' ')
       .trim();
   }
 
@@ -70,10 +65,7 @@ class RegisterPage {
     };
   }
 
-  addRandomUser(
-    aliasName = "testUser",
-    includeDisplayName = true,
-  ): Cypress.Chainable<UserData> {
+  addRandomUser(aliasName = 'testUser', includeDisplayName = true): Cypress.Chainable<UserData> {
     const user = this.createRandomUser();
     const displayName = includeDisplayName ? user.displayName : undefined;
 
@@ -85,26 +77,26 @@ class RegisterPage {
 
   assertRegistrationGuidelinesSection(): void {
     const expectedTexts = [
-      "Registration Guidelines",
-      "Email:",
-      "This will be used to sign in to your account.",
+      'Registration Guidelines',
+      'Email:',
+      'This will be used to sign in to your account.',
       "Make sure it's valid.",
-      "Display Name:",
-      "This is what others will see.",
-      "If not provided, your email will be shown.",
+      'Display Name:',
+      'This is what others will see.',
+      'If not provided, your email will be shown.',
     ];
 
     this.selectors
       .getAuthInfoSection()
-      .should("be.visible")
+      .should('be.visible')
       .within(() => {
         expectedTexts.forEach((text) => {
-          cy.contains(text).should("be.visible");
+          cy.contains(text).should('be.visible');
         });
 
-        cy.get("#password-guideline")
-          .should("be.visible")
-          .and("contain.text", "Password: Must be at least 3 characters long.");
+        cy.get('#password-guideline')
+          .should('be.visible')
+          .and('contain.text', 'Password: Must be at least 3 characters long.');
       });
   }
 }
